@@ -1,0 +1,131 @@
+/* General page setup */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f7fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  color: #333;
+}
+
+/* Title styling */
+h1 {
+  color: #0066cc;
+  margin-bottom: 20px;
+}
+
+/* Form container */
+form {
+  background-color: white;
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 320px;
+}
+
+/* Labels */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+/* Inputs and dropdowns */
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus {
+  border-color: #0066cc;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 102, 204, 0.3);
+}
+
+/* Buttons */
+button {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #004d99;
+}
+
+/* Message text */
+#msg {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #0066cc;
+}
+
+
+/*HOME PAGE CSS*/
+/* Page layout */
+header, section, footer {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Header styling */
+header {
+  background-color: #0066cc;
+  color: white;
+  padding: 40px 20px;
+  border-radius: 10px;
+}
+
+/* Section headings */
+h2 {
+  color: #0066cc;
+}
+
+/* Intro section */
+.intro ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.intro li {
+  background-color: white;
+  margin: 10px auto;
+  padding: 10px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Call-to-action button */
+.btn {
+  background-color: #0066cc;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #004d99;
+}
+
+/* Footer */
+footer {
+  color: #555;
+  font-size: 14px;
+}

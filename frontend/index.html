@@ -12,6 +12,9 @@
     <!-- Name -->
     <label for="name">Your Name:</label><br>
     <input id="name" name="name" placeholder="Enter your name" required><br><br>
+    <!-- Email -->
+    <label for="email">Your Name:</label><br>
+    <input id="email" name="email" placeholder="Enter your email" type="email"><br><br>
 
     <!-- Pickup Location -->
     <label for="pickup">Pickup Location:</label><br>
@@ -42,6 +45,9 @@
     </select><br><br>
 
     <!-- Goods Type -->
+     <h3>Goods Items</h3>
+     <div class="goodsContainer">
+        <div class="goodsItems">
     <label for="goods">Goods Type:</label><br>
     <select id="goods" name="goods" required>
       <option value="" disabled selected>-- Select Goods Type --</option>
@@ -64,6 +70,9 @@
       min="20" 
       required
     ><br><br>
+        </div>
+     </div>
+     <button type="button" id="addGoods">+ Add Another Item</button><br><br>
 
     <!-- Buttons -->
     <button type="button" id="getQuote">Get Quote</button>
