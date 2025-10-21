@@ -13,7 +13,7 @@
     <label for="name">Your Name:</label><br>
     <input id="name" name="name" placeholder="Enter your name" required><br><br>
     <!-- Email -->
-    <label for="email">Your Name:</label><br>
+    <label for="email">Your Email:</label><br>
     <input id="email" name="email" placeholder="Enter your email" type="email"><br><br>
 
     <!-- Pickup Location -->
@@ -49,7 +49,7 @@
      <div class="goodsContainer">
         <div class="goodsItems">
     <label for="goods">Goods Type:</label><br>
-    <select id="goods" name="goods" required>
+    <select id="goods" name="goods">
       <option value="" disabled selected>-- Select Goods Type --</option>
       <option value="Furniture">Furniture</option>
       <option value="Electronics">Electronics</option>
@@ -68,8 +68,10 @@
       name="weight" 
       placeholder="Enter approximate weight in kg(min 20kgs)" 
       min="20" 
-      required
+    
     ><br><br>
+    <div id ="goodslist">
+    </div>
         </div>
      </div>
      <button type="button" id="addGoods">+ Add Another Item</button><br><br>
