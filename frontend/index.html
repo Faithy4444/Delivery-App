@@ -2,88 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🚚 Delivery Request</title>
+  <title>MuzondoDelivery 🚛 | Home</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>🚚 Delivery Request Form</h1>
+  <header>
+    <h1>🚛 Welcome to MuzondoDelivery</h1>
+    <p>Your trusted cross-border goods transport service from South Africa to Zimbabwe and beyond!</p>
+  </header>
 
-  <form id="requestForm">
-    <!-- Name -->
-    <label for="name">Your Name:</label><br>
-    <input id="name" name="name" placeholder="Enter your name" required><br><br>
-    <!-- Email -->
-    <label for="email">Your Email:</label><br>
-    <input id="email" name="email" placeholder="Enter your email" type="email"><br><br>
+  <section class="intro">
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>✅ Fast and reliable delivery</li>
+      <li>💸 Affordable quotes</li>
+      <li>🌍 Cross-border service from SA to Zimbabwe</li>
+      <li>🕒 Real-time updates (coming soon!)</li>
+    </ul>
+  </section>
 
-    <!-- Pickup Location -->
-    <label for="pickup">Pickup Location:</label><br>
-    <select id="pickup" name="pickup" required>
-      <option value="" disabled selected>-- Select Pickup Location --</option>
-      <option value="Johannesburg">Johannesburg</option>
-      <option value="Pretoria">Pretoria</option>
-      <option value="Polokwane">Polokwane</option>
-      <option value="Pietermaritzburg">Pietermaritzburg</option>
-      <option value="Durban">Durban</option>
-      <option value="Ixopo">Ixopo</option>
-      <option value="Beitbridge">Beitbridge</option>
-    </select><br><br>
+  <section class="cta">
+    <h2>Ready to ship your goods?</h2>
+    <p>Request a delivery or a quote in just a few clicks!</p>
+    <a href="index.html" class="btn">🚚 Request Delivery</a>
+  </section>
 
-    <!-- Drop-off Location -->
-    <label for="dropoff">Drop-off Location:</label><br>
-    <select id="dropoff" name="dropoff" required>
-      <option value="" disabled selected>-- Select Drop-off Location --</option>
-      <option value="Johannesburg">Johannesburg</option>
-      <option value="Pretoria">Pretoria</option>
-      <option value="Polokwane">Polokwane</option>
-      <option value="Musina">Musina</option>
-      <option value="Gweru">Gweru</option>
-      <option value="Bulawayo">Bulawayo</option>
-      <option value="Kwekwe">Kwekwe</option>
-      <option value="Kadoma">Kadoma</option>
-      <option value="Harare">Harare</option>
-    </select><br><br>
-
-    <!-- Goods Type -->
-     <h3>Goods Items</h3>
-     <div class="goodsContainer">
-        <div class="goodsItems">
-    <label for="goods">Goods Type:</label><br>
-    <select id="goods" name="goods">
-      <option value="" disabled selected>-- Select Goods Type --</option>
-      <option value="Furniture">Furniture</option>
-      <option value="Electronics">Electronics</option>
-      <option value="Clothing">Clothing</option>
-      <option value="Food">Food</option>
-      <option value="Building Materials">Building Materials</option>
-      <option value="Machinery">Machinery</option>
-      <option value="Fragile Items">Fragile Items</option>
-    </select><br><br>
-
-      <!-- Approximate Weight -->
-    <label for="weight">Approximate Weight (kg):</label><br>
-    <input 
-      type="number" 
-      id="weight" 
-      name="weight" 
-      placeholder="Enter approximate weight in kg(min 20kgs)" 
-      min="20" 
-    
-    ><br><br>
-    <div id ="goodslist">
-    </div>
-        </div>
-     </div>
-     <button type="button" id="addGoods">+ Add Another Item</button><br><br>
-
-    <!-- Buttons -->
-    <button type="button" id="getQuote">Get Quote</button>
-    <button type="submit" id="placeOrder">Place Order</button>
-  </form>
-
-  <p id="msg"></p>
-
-  <script src="index.mjs"></script>
+  <footer>
+    <p>© 2025 FreightTrack. All rights reserved.</p>
+  </footer>
 </body>
 </html>
-

@@ -75,57 +75,121 @@ button:hover {
 
 
 /*HOME PAGE CSS*/
-/* Page layout */
-header, section, footer {
+/* Reset some defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body styling */
+body {
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
   text-align: center;
+  padding: 60px 20px 40px 20px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  border-radius: 10px;
   margin-bottom: 40px;
 }
 
-/* Header styling */
-header {
-  background-color: #0066cc;
-  color: white;
-  padding: 40px 20px;
-  border-radius: 10px;
+header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
 }
 
-/* Section headings */
-h2 {
-  color: #0066cc;
+header p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* Intro section */
+.intro {
+  background: white;
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+.intro h2 {
+  text-align: center;
+  color: #0072ff;
+  margin-bottom: 20px;
+}
+
 .intro ul {
-  list-style-type: none;
-  padding: 0;
+  list-style: none;
 }
 
 .intro li {
-  background-color: white;
-  margin: 10px auto;
-  padding: 10px;
-  width: 300px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
 }
 
-/* Call-to-action button */
-.btn {
-  background-color: #0066cc;
+.intro li::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+}
+
+/* CTA section */
+.cta {
+  text-align: center;
+  padding: 40px 20px;
+  background: #0072ff;
   color: white;
-  padding: 12px 20px;
-  border-radius: 8px;
+  border-radius: 10px;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.cta p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  color: #0072ff;
+  background: white;
+  border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #004d99;
+  background: #e0f0ff;
+  transform: translateY(-3px);
 }
 
 /* Footer */
 footer {
-  color: #555;
-  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 20px;
 }
