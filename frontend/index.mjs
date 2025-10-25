@@ -88,8 +88,13 @@ form.addEventListener("submit", async (e) => {
     goodsList,
   };
 
+const backendURL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://deliveryappbackend.hosting.codeyourfuture.io";
+
   try {
-    const response = await fetch("http://localhost:5000/send-email", {
+    const response = await fetch(`${backendURL}/send-email`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
