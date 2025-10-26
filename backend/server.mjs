@@ -7,7 +7,26 @@ const app = express();
 const PORT = 5000;
 
 // Middleware setup
-app.use(cors());
+const allowedOrigins = [
+  "https://deliveryappfrontend.hosting.codeyourfuture.io",
+  "http://127.0.0.1:3000",
+  "http://localhost:3000"
+];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = "CORS policy: This origin is not allowed.";
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+}));
+
+
 app.use(bodyParser.json());
 
 // 📨 Route to handle sending email
