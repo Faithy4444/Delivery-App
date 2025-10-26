@@ -4,9 +4,8 @@ import cors from "cors";
 import bodyParser from "body-parser";
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-// Middleware setup
 const allowedOrigins = [
   "https://deliveryappfrontend.hosting.codeyourfuture.io",
   "http://127.0.0.1:3000",
@@ -16,15 +15,14 @@ const allowedOrigins = [
 app.use(cors({
   origin: function(origin, callback) {
     if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = "CORS policy: This origin is not allowed.";
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error("CORS policy: This origin is not allowed."), false);
   },
-  methods: ['GET', 'POST', 'OPTIONS'],
+  methods: ['GET','POST','OPTIONS'],
   allowedHeaders: ['Content-Type'],
 }));
+
+app.options("/send-email", cors());
 
 
 app.use(bodyParser.json());
