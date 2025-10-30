@@ -112,7 +112,7 @@ form.addEventListener("submit", async (e) => {
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     pickup: document.getElementById("pickup").value,
-    pickAddress: document.getElementById("pickupAddress").value,
+    pickupAddress: document.getElementById("pickupAddress").value,
     dropoff: document.getElementById("dropoff").value,
     dropoffAddress: document.getElementById("dropoffAddress").value,
     goodsList,
