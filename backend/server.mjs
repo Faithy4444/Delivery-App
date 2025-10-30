@@ -29,12 +29,12 @@ app.use(bodyParser.json());
 
 // 📨 Route to handle sending email
 app.post("/send-email", async (req, res) => {
-  const { name, email, pickup, dropoff, goodsList } = req.body;
+  const { name, email, pickup, dropoff, goodsList, quoteAmount,pickupAddress, dropoffAddress, currency } = req.body;
 
   try {
     // Create transporter
     const transporter = nodemailer.createTransport({
-      service: "gmail", // You can change this to "hotmail", "yahoo", etc.
+      service: "gmail",
       auth: {
   user: "muzondodelivery@gmail.com",
   pass: "vjyjuwpwvmftmtdb",
@@ -48,18 +48,24 @@ app.post("/send-email", async (req, res) => {
       .join("\n");
 
     // Email content
+
+    const currencySymbols = {
+  ZAR: "R",
+  USD: "$",
+  ZWL: "ZWL"
+};
     const mailOptions = {
       from: "muzondodelivery@gmail.com",
-      to: email, // where you’ll receive the order
+      to: email,
       subject: "🚚 New Delivery Request",
       text: `
 📦 New delivery request received:
 
 👤 Name: ${name}
 📧 Email: ${email}
-📍 Pickup: ${pickup}
-🏁 Drop-off: ${dropoff}
-
+📍 Pickup: ${pickup}, ${pickupAddress}
+🏁 Drop-off: ${dropoff}, ${dropoffAddress}
+💰 Quote Amount: ${currencySymbols[currency] || ""}${quoteAmount} (${currency})
 🧾 Goods Details:
 ${goodsDetails}
 

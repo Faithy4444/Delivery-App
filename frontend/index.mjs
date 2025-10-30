@@ -29,15 +29,26 @@ goodsList.push({ goodsName, weight: weightValue }); // store number
   list.appendChild(newItemDisplay);
 
   goodsInput.value = "";
-  quantityInput.value = 20;
+  quantityInput.value = "";
   goodsInput.focus();
 });
 
 // Calculate quote
-document.getElementById("getQuote").addEventListener("click", () => {
+let total = 0;
+let convertedTotal = 0;
+let selectedCurrency = "ZAR";
+document.getElementById("getQuote").addEventListener("click", async () => {
   const pickup = document.getElementById("pickup").value;
   const dropoff = document.getElementById("dropoff").value;
   const msg = document.getElementById("msg");
+
+  const currencyRadios = document.getElementsByName("currency");
+  for (const radio of currencyRadios) {
+    if (radio.checked) {
+      selectedCurrency = radio.value;
+      break;
+    }
+  }
 
   if (!pickup || !dropoff) {
     msg.textContent = "⚠️ Please select pickup and drop-off locations.";
@@ -45,28 +56,45 @@ document.getElementById("getQuote").addEventListener("click", () => {
     return;
   }
 
-  let total = 0;
+  total = 0;
+  let distanceFee = 500;
+   if (pickup === "Johannesburg" && dropoff === "Harare") distanceFee = 800;
+    else if (pickup === "Durban" && dropoff === "Gweru") distanceFee = 700;
+
+  total += distanceFee;
   goodsList.forEach(item => {
     let { goodsName, weight } = item;
     weight = parseFloat(weight);
 
     let baseFee = 200;
     let perKg = 5;
-
-    let distanceFee = 500;
-    if (pickup === "Johannesburg" && dropoff === "Harare") distanceFee = 800;
-    else if (pickup === "Durban" && dropoff === "Gweru") distanceFee = 700;
-
     let multiplier = 1;
+
     if (goodsName === "Fragile Items") multiplier = 1.1;
     if (goodsName === "Machinery") multiplier = 1.2;
 
-    total += (baseFee + distanceFee + weight * perKg) * multiplier;
+    total += (baseFee + weight * perKg) * multiplier;
   });
+  // Convert to selected currency
+  convertedTotal = total;
+  if (selectedCurrency !== "ZAR") {
+    try {
+      const response = await fetch("https://v6.exchangerate-api.com/v6/ca543deae5c24045862728f5/latest/ZAR");
+      const data = await response.json();
+      const rate = data.conversion_rates[selectedCurrency];
 
-  msg.textContent = `💰 Estimated Total Quote: R${total.toFixed(2)}`;
+      convertedTotal = total * rate;
+    } catch (err) {
+      console.error(err);
+      msg.textContent = "⚠️ Could not fetch currency rates. Showing ZAR total.";
+      msg.style.color = "orange";
+    }
+  }
+
+  msg.textContent = `💰 Estimated Total Quote: ${selectedCurrency} ${convertedTotal.toFixed(2)}`;
   msg.style.color = "#0066cc";
 });
+
 
 // Send order to backend
 const form = document.getElementById("requestForm");
@@ -84,8 +112,12 @@ form.addEventListener("submit", async (e) => {
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     pickup: document.getElementById("pickup").value,
+    pickAddress: document.getElementById("pickupAddress").value,
     dropoff: document.getElementById("dropoff").value,
+    dropoffAddress: document.getElementById("dropoffAddress").value,
     goodsList,
+    quoteAmount: convertedTotal.toFixed(2),
+    currency: selectedCurrency,
   };
 
 const backendURL =
@@ -103,7 +135,7 @@ const backendURL =
 
     const result = await response.json();
     if (result.success) {
-      msg.textContent = "✅ Order placed! Email sent successfully!";
+      msg.textContent = "Order placed! Email sent successfully!";
       msg.style.color = "green";
       form.reset();
       goodsList.length = 0; // clear array

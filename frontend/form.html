@@ -28,6 +28,9 @@
       <option value="Ixopo">Ixopo</option>
       <option value="Beitbridge">Beitbridge</option>
     </select><br><br>
+    <label for="pickupAddress">Pickup Address:</label>
+    <input type="text" id="pickupAddress" placeholder="Enter full address" />
+    
 
     <!-- Drop-off Location -->
     <label for="dropoff">Drop-off Location:</label><br>
@@ -43,6 +46,23 @@
       <option value="Kadoma">Kadoma</option>
       <option value="Harare">Harare</option>
     </select><br><br>
+    <label for="dropoffAddress">Drop-off Address:</label>
+   <input type="text" id="dropoffAddress" placeholder="Enter full address" />
+
+   <div id="currencyContainer">
+  <p class="currency-label">Select Currency:</p>
+  <label for="currencyZAR">R - ZAR</label>
+  <input type="radio" name="currency" id="currencyZAR" value="ZAR" checked>
+  
+  <label for="currencyUSD">$ - USD</label>
+  <input type="radio" name="currency" id="currencyUSD" value="USD">
+  
+  <label for="currencyZWL">ZWL - Zim Dollar</label>
+  <input type="radio" name="currency" id="currencyZWL" value="ZWL">
+  
+</div>
+
+  
 
     <!-- Goods Type -->
      <h3>Goods Items</h3>
@@ -58,6 +78,7 @@
       <option value="Building Materials">Building Materials</option>
       <option value="Machinery">Machinery</option>
       <option value="Fragile Items">Fragile Items</option>
+      <option value="Other">Other</option>
     </select><br><br>
 
       <!-- Approximate Weight -->
@@ -74,14 +95,14 @@
     </div>
         </div>
      </div>
-     <button type="button" id="addGoods">+ Add Another Item</button><br><br>
+
+     <p id="msg"></p>
+     <button type="button" id="addGoods">+ Add Item</button><br><br>
 
     <!-- Buttons -->
     <button type="button" id="getQuote">Get Quote</button>
     <button type="submit" id="placeOrder">Place Order</button>
   </form>
-
-  <p id="msg"></p>
 
   <script src="index.mjs"></script>
 </body>
